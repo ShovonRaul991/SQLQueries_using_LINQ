@@ -112,17 +112,10 @@ namespace SQL_Queries1
             //Select all columns for everyone with a salary over  38000. 
             void query4()
             {
-                var EmployeeSalaryGreaterThan38000 = Employeelist.Where(e => e.EmployeeSalary > 38000).Select(e => new
+                var EmployeeSalaryGreaterThan38000 = Employeelist.Where(e => e.EmployeeSalary > 38000);
+                foreach(var employee in EmployeeSalaryGreaterThan38000)
                 {
-                    FirstName = e.EmployeeFirstName,
-                    LastName = e.EmployeeLastName,
-                    Title = e.EmployeeTitle,
-                    Age = e.EmployeeAge,
-                    salary = e.EmployeeSalary
-                });
-                foreach (var employee in EmployeeSalaryGreaterThan38000)
-                {
-                    Console.WriteLine(employee);
+                    Console.WriteLine(employee.EmployeeFirstName+" "+employee.EmployeeLastName+" "+employee.EmployeeSalary+" "+employee.EmployeeTitle+" "+employee.EmployeeAge);
                     //Console.WriteLine("Name is " + employee.FirstName + " " + employee.LastName + " and title is " + employee.Title + " and salary is: " + employee.salary);
                 }
             }
